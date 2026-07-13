@@ -1,0 +1,38 @@
+# Input file for peak comparison.
+# Place input under each input param below:
+#
+#
+
+# Comma-separated list of pkl.gzip files.
+INPUT_picklenames
+/path/to/sample1.pkl.gzip,/path/to/sample2.pkl.gzip,/path/to/sample3.pkl.gzip
+
+
+# Offset applied to all_5 density indexing.
+INPUT_offset
+42
+
+# Codon enrichment cutoff. A site is written if any dataset exceeds this value.
+INPUT_cutoff
+5
+
+# Number of worker threads to use when loading pkl.gzip files.
+# 1 = serial loading, >1 = parallel loading.
+INPUT_loadworkers
+2
+
+# Print timing information: 1 = on, 0 = off.
+INPUT_timer
+1
+
+# Print memory usage (peak RSS): 1 = on, 0 = off.
+INPUT_memoryreport
+1
+
+# Print progress every N genes during analysis (set 0 to disable).
+INPUT_progressinterval
+2000
+
+# Output csv path (with or without .csv).
+INPUT_outfile
+/path/to/peakcomparison_output
