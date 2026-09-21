@@ -1,0 +1,57 @@
+# Input file for posavg.
+# Place input under each input param below:
+#
+#
+ 
+# Put in motif, ie H or AAA (nt or aa). This can be a comma-separated list, for example ATG,CTG
+# Put all to do all codons or amino acids. Note this will also generate peak (pause) scores, using a hardcoded window of +/-1 nt.
+# For amino-acid motifs (kind=1), X is a wildcard:
+# XX = all dipeptides, XXX = all tripeptides, GX = all dipeptides starting with G (GA, GC, GD, ...).
+# Any amino-acid wildcard set (contains X) will also generate peak (pause) scores.
+# Put f or l at start of a motif (nt only) to get the first or last such motif in the region of interest (note ALL frames are checked).
+INPUT_motif
+XXX
+ 
+# kind is whether the motif is an amino acid (1) or nucleotide sequence (0)
+INPUT_kind
+1
+ 
+# frame is frame 0, 1, or 2 to be looking in. Put 3 for all 3 frames together.
+INPUT_frame
+0
+ 
+# Note that this is the minimal rpkm counts within the bkndwindow to be included in the average.
+INPUT_bkndwindowthresh
+0
+ 
+# This is the size of the half-window around the codon of interest to be included in the average.
+INPUT_bkndwindow
+50
+
+# Optional score-table columns for per-dataset motif observations where motif-site density > 0.
+# 0 = off, 1 = on. Total motif instances are always reported regardless of this setting.
+INPUT_positivecountcols
+0
+ 
+#ORFnorm will normalize to the ORF for UTRs. 0 does not normalize. A positive value will ORF normalize and specify the rpkm ORF threshold for genes to include. This uses a hard-coded shift of +/-13.
+INPUT_ORFnorm
+0
+ 
+#UTRmode is whether doing UTR5,CDS,or UTR3 = 0,1,2, respectively.
+INPUT_UTRmode
+1
+ 
+INPUT_shift
+15
+ 
+# SAM file of reads aligned by bowtie to the input fasta file. Can be a comma-separated list.
+INPUT_picklenames
+/Volumes/My Passport for Mac/GL135/SM146F_25to34nt.pkl.gzip,/Volumes/My Passport for Mac/GL135/SM147F_25to34nt.pkl.gzip
+
+# Whether you want 5' or 3' end aligned reads. "all_5" or "all_3"
+INPUT_endmode
+all_5
+ 
+# Name of the output file (doesn't need .csv extension)
+INPUT_outfile
+/Volumes/My Passport for Mac/GL135/XX_faster_codex
